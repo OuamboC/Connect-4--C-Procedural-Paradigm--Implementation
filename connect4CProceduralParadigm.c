@@ -10,8 +10,8 @@
 // Game board
 char grid[ROWS][COLS]; // 2D array to represent the grid
 
-// Function to initialize the game board
-void initializeGrid()
+// Function to initialisee the game board
+void initialiseeGrid()
 {
     // Fill the grid with empty spaces
     for (int i = 0; i < ROWS; i++)
@@ -137,7 +137,7 @@ void playGame()
     int currentPlayer = 1;                       // Indicates the current player (1 or 2)
 
     // Welcome message
-    printf("Welcome to Connect 4 (5x5 Grid)!\n");
+    printf("Welcome to Connect 4 (5x5 Grid)\n");
     printf("Instructions: The first player to align four of their tokens vertically or horizontally wins the game!\n");
 
     // Get player names
@@ -169,8 +169,8 @@ void playGame()
         break;
     }
 
-    // Initialize the game board
-    initializeGrid();
+    // Initialise the game board
+    initialiseGrid();
 
     // Main game loop
     while (true)
