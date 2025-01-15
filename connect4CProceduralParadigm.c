@@ -8,7 +8,7 @@
 #define COLS 5 // Number of columns in the game board
 
 // Game board
-char grid[ROWS][COLS]; // 2D array to represent the grid
+char grid[ROWS][COLS]; // 2D array to represent the grid (char type)
 
 // Function to initialise the game board
 void initialiseGrid()
@@ -18,7 +18,7 @@ void initialiseGrid()
     {
         for (int j = 0; j < COLS; j++)
         {
-            grid[i][j] = ' '; // Empty space represents an unoccupied cell
+            grid[i][j] = ' '; // Empty space represents an unoccupied cell (char type)
         }
     }
 }
@@ -32,7 +32,7 @@ void printGrid()
         // Print each cell with a separator
         for (int j = 0; j < COLS; j++)
         {
-            printf(" | %c", grid[i][j]);
+            printf(" | %c", grid[i][j]); //Accessing the grid values (char type)
         }
         printf(" |\n"); // End of the row
 
@@ -48,14 +48,14 @@ void printGrid()
 // Function to check if a move is valid
 bool isValidMove(int row, int col)
 {
-    // A valid move is within bounds and the cell is empty
+    // A valid move is within bounds and the cell is empty (int type for row and col)
     return row >= 0 && row < ROWS && col >= 0 && col < COLS && grid[row][col] == ' ';
 }
 
 // Function to place a token on the grid
 void placeToken(int row, int col, char token)
 {
-    // If the move is valid, place the token in the specified cell
+    // If the move is valid, place the token in the specified cell (int type for row and col, char type for token)
     if (isValidMove(row, col))
     {
         grid[row][col] = token;
@@ -65,16 +65,16 @@ void placeToken(int row, int col, char token)
 // Function to check a line for four consecutive tokens
 bool checkLine(int startRow, int startCol, int stepRow, int stepCol, char token)
 {
-    int count = 0; // Counter for consecutive matching tokens
+    int count = 0; // Counter for consecutive matching tokens (int type)
 
     // Loop to check each position in the line
     for (int i = 0; i < 5; i++)
     {
-        // Calculate the current row and column
+        // Calculate the current row and column (int type)
         int row = startRow + i * stepRow;
         int col = startCol + i * stepCol;
 
-        // Check if within bounds and matches the token
+        // Check if within bounds and matches the token (char type)
         if (row < ROWS && col < COLS && grid[row][col] == token)
         {
             count++;
@@ -96,11 +96,11 @@ bool checkLine(int startRow, int startCol, int stepRow, int stepCol, char token)
 // Function to check if there is a winner
 bool checkWinner(int row, int col, char token)
 {
-    // Check horizontally from the starting row
+    // Check horizontally from the starting row (int type)
     if (checkLine(row, 0, 0, 1, token))
         return true;
 
-    // Check vertically from the starting column
+    // Check vertically from the starting column (int type)
     if (checkLine(0, col, 1, 0, token))
         return true;
 
@@ -110,10 +110,10 @@ bool checkWinner(int row, int col, char token)
 // Function to check if the player name is valid 
 bool isValidPlayerName(char *playerName)
 {
-    // Iterate over each character in the playName string
+    // Iterate over each character in the playName string (char type)
     for (int i = 0; i < strlen(playerName); i++)
     {
-        //Check if the character is neither alphabetic nor a space 
+        //Check if the character is neither alphabetic nor a space (char type)
         if (!isalpha(playerName[i]) && playerName[i] != ' ')
         {
             return false; // Invalid if non-alphabetic character is found
@@ -125,17 +125,17 @@ bool isValidPlayerName(char *playerName)
 // Function to get a player's move
 void getPlayerMove(char *playerName, char token, int *row, int *col)
 {
-    // Prompt the player for their move
+    // Prompt the player for their move (char * for playerName, char for token, int * for row and col)
     printf("%s, enter your move (row col): ", playerName);
-    scanf("%d %d", row, col);
+    scanf("%d %d", row, col); //Read row and col as integers 
 }
 
 // Main game logic
 void playGame()
 {
-    char player1Name[50], player2Name[50];       // Names of players
-    char player1Token = 'O', player2Token = 'C'; // Tokens for players
-    int currentPlayer = 1;                       // Indicates the current player (1 or 2)
+    char player1Name[50], player2Name[50];       // Names of players (char array)
+    char player1Token = 'O', player2Token = 'C'; // Tokens for players (char type)
+    int currentPlayer = 1;                       // Indicates the current player (1 or 2) (int type)
 
     // Welcome message
     printf("Welcome to Connect 4 (5x5 Grid)\n");
@@ -144,7 +144,7 @@ void playGame()
     // Get player names
     while (true) {
         printf("Enter Player 1's name: ");
-        fgets(player1Name, sizeof(player1Name), stdin); // Use fgets to read the name
+        fgets(player1Name, sizeof(player1Name), stdin); // Use fgets to read the name (char array)
         player1Name[strcspn(player1Name, "\n")] = '\0';  // Remove newline character
         
         // Validate the player name
@@ -158,7 +158,7 @@ void playGame()
 
     while (true) {
         printf("Enter Player 2's name: ");
-        fgets(player2Name, sizeof(player2Name), stdin); // Use fgets to read the name
+        fgets(player2Name, sizeof(player2Name), stdin); // Use fgets to read the name (char array)
         player2Name[strcspn(player2Name, "\n")] = '\0';  // Remove newline character
 
         // Validate the player name
@@ -179,7 +179,7 @@ void playGame()
         // Print the current state of the grid
         printGrid();
 
-        // Variables to store the player's move
+        // Variables to store the player's move (int type)
         int row, col;
 
         // Handle moves for Player 1
