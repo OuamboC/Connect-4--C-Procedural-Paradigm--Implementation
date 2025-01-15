@@ -10,11 +10,7 @@
 // Game board
 char grid[ROWS][COLS]; // 2D array to represent the grid
 
-<<<<<<< HEAD
-// Function to initialisee the game board
-=======
-// Function to initialise the game board
->>>>>>> 712538d38e2d96dd1e64e5d2879668279bd0c14d
+
 void initialiseGrid()
 {
     // Fill the grid with empty spaces
