@@ -107,18 +107,19 @@ bool checkWinner(int row, int col, char token)
     return false; // No winner found
 }
 
-
+// Function to check if the player name is valid 
 bool isValidPlayerName(char *playerName)
 {
-    // Check if each character is alphabetic
+    // Iterate over each character in the playName string
     for (int i = 0; i < strlen(playerName); i++)
     {
+        //Check if the character is neither alphabetic nor a space 
         if (!isalpha(playerName[i]) && playerName[i] != ' ')
         {
             return false; // Invalid if non-alphabetic character is found
         }
     }
-    return true;
+    return true; //Valid if all characters are alphabetic or spaces 
 }
 
 // Function to get a player's move
