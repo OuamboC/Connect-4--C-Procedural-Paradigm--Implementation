@@ -11,7 +11,7 @@
 char grid[ROWS][COLS]; // 2D array to represent the grid
 
 // Function to initialisee the game board
-void initialiseeGrid()
+void initialiseGrid()
 {
     // Fill the grid with empty spaces
     for (int i = 0; i < ROWS; i++)
