@@ -149,7 +149,7 @@ void playGame()
         
         // Validate the player name
         if (!isValidPlayerName(player1Name)) {
-            printf("Invalid name. Please enter a valid name with only letters.\n");
+            printf("Invalid name.Please enter a valid name with only letters (no numbers or special characters).\n");
             continue;
         }
 
